@@ -1,4 +1,4 @@
-module tools
+module github.com/smithjw/tmp-actions
 
 go 1.23.4
 
