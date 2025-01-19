@@ -1,0 +1,15 @@
+name: Dependabot Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+      - run: |
+          go version
+          go install github.com/dependabot/cli/cmd/dependabot@latest
+          dependabot --version
+          dependabot update github_actions smithjw/tmp-actions
