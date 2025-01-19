@@ -1,5 +1,0 @@
-services:
-  one:
-    image: "ghcr.io/dependabot/dependabot-updater-github-actions:latest"
-  two:
-    image: "ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:latest"

@@ -10,16 +10,10 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      # - uses: actions/setup-go@v5
-      - name: Cache Docker images.
+      - name: Cache Docker images
         uses: ScribeMD/docker-cache@0.5.0
         with:
-          key: docker-${{ runner.os }}-docker-compose.yml
-      # - run: |
-      #     go version
-      #     go install github.com/dependabot/cli/cmd/dependabot@latest
-      #     dependabot --version
-      #     dependabot update github_actions smithjw/tmp-actions
+          key: docker-${{ runner.os }}-${{ hashFiles('dependencies.txt') }}
       - run: |
           gh release download \
             --repo "dependabot/cli" \

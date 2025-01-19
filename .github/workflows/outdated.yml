@@ -1,0 +1,10 @@
+name: Outdated Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  outdated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3

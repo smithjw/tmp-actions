@@ -1,0 +1,2 @@
+ghcr.io/dependabot/dependabot-updater-github-actions:latest
+ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:latest
