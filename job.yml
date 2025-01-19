@@ -1,0 +1,13 @@
+job:
+  package-manager: 'github_actions'
+  allowed-updates:
+    - update-type: all
+  source:
+    directory: '/'
+    provider: github
+    repo: smithjw/tmp-actions
+  dependency-groups:
+    - name: actions
+      rules:
+        patterns:
+          - '*'

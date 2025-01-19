@@ -3,11 +3,18 @@ name: Dependabot Test
 on:
   workflow_dispatch:
 
+permissions:
+  pull-requests: write
+  contents: write
+  issues: write
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  LOCAL_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Cache Docker images
@@ -21,4 +28,4 @@ jobs:
             --output "dependabot.tar.gz"
           tar -xzf dependabot.tar.gz
           ./dependabot --version
-          ./dependabot update github_actions smithjw/tmp-actions
+          ./dependabot update --file job.yml
